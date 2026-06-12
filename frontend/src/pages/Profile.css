@@ -1,0 +1,324 @@
+.profile-page {
+  padding: 2rem 0;
+}
+
+.profile-page h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Profile Header */
+.profile-header {
+  background: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.profile-avatar {
+  font-size: 4rem;
+  min-width: 100px;
+  text-align: center;
+}
+
+.profile-info h2 {
+  color: var(--dark-color);
+  margin-bottom: 0.25rem;
+}
+
+.profile-info p {
+  color: var(--gray-color);
+  margin-bottom: 0.25rem;
+}
+
+.member-since {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Profile Grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.profile-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h3 {
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+}
+
+.stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  border-left: 3px solid #2ecc71;
+}
+
+.stat-item span {
+  color: var(--gray-color);
+}
+
+.stat-item strong {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* Badges */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.badge {
+  text-align: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.badge:hover {
+  transform: translateY(-5px);
+  border-color: #2ecc71;
+}
+
+.badge-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.badge p {
+  color: var(--dark-color);
+  font-weight: 500;
+  margin: 0;
+}
+
+.google-auth-section {
+  background: #f3f7fb;
+  padding: 1.8rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(46, 204, 113, 0.2);
+  margin-bottom: 2rem;
+}
+
+.google-auth-section h2 {
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.google-auth-section p {
+  margin-bottom: 1.2rem;
+  color: var(--gray-color);
+}
+
+.google-error-message {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.google-error-message strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.google-error-message small {
+  display: block;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+.google-user-info {
+  margin-top: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--dark-color);
+}
+
+.google-user-info pre {
+  margin: 0.5rem 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #5d6d7e;
+  font-size: 0.85rem;
+}
+
+/* Settings */
+.profile-settings {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.profile-settings h3 {
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.settings-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 4px solid #2ecc71;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.settings-header h4 {
+  margin: 0;
+  color: var(--dark-color);
+}
+
+.settings-card p {
+  color: var(--gray-color);
+  margin-bottom: 1rem;
+}
+
+/* Danger Zone */
+.danger-zone {
+  background: #fff5f5;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px solid #e74c3c;
+}
+
+.danger-zone h3 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.danger-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.danger-actions .btn {
+  flex: 1;
+  min-width: 150px;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .danger-actions {
+    flex-direction: column;
+  }
+
+  .danger-actions .btn {
+    width: 100%;
+  }
+}
+
+.google-auth-section.success {
+  background: #ebf9eb;
+  border-color: #2ecc71;
+  color: #27ae60;
+}
+
+.google-auth-section.success h2 {
+  color: #27ae60;
+}
+
+.google-auth-section.success p {
+  color: #2c3e50;
+}
+
+.profile-avatar img.avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2ecc71;
+  box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2);
+}
+
+.danger-zone .btn-outline {
+  border-color: #e74c3c;
+  color: #e74c3c;
+  background-color: transparent;
+}
+
+.danger-zone .btn-outline:hover:not(:disabled) {
+  background-color: #e74c3c;
+  color: white;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  transform: translateY(-3px);
+}
+
+.danger-zone .btn-outline:disabled {
+  border-color: #bdc3c7;
+  color: #bdc3c7;
+  background-color: transparent;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

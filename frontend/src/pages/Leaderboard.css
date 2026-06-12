@@ -1,0 +1,215 @@
+.leaderboard-page {
+  padding: 2rem 0;
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.leaderboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard-header p {
+  font-size: 1.1rem;
+  color: var(--gray-color);
+}
+
+.leaderboard-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.leaderboard-filters .btn {
+  min-width: 120px;
+}
+
+.leaderboard-container {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table thead {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+}
+
+.leaderboard-table th {
+  padding: 1.5rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.leaderboard-table td {
+  padding: 1.5rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.leaderboard-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.leaderboard-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.leaderboard-table tbody tr.rank-1 {
+  background-color: #fffacd;
+}
+
+.leaderboard-table tbody tr.rank-2 {
+  background-color: #f5f5f5;
+}
+
+.leaderboard-table tbody tr.rank-3 {
+  background-color: #ffe4b5;
+}
+
+.rank-cell {
+  text-align: center;
+}
+
+.medal {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.name-cell {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  font-size: 1.5rem;
+}
+
+.emissions-cell {
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.reduction-cell {
+  text-align: center;
+}
+
+.reduction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.status-cell {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Info Cards */
+.leaderboard-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #2ecc71;
+}
+
+.info-card h3 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: var(--gray-color);
+  margin-bottom: 1rem;
+}
+
+.info-card ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.info-card ul li {
+  padding: 0.5rem 0;
+  color: var(--gray-color);
+}
+
+.info-card ul li strong {
+  color: var(--dark-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .leaderboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .leaderboard-table {
+    font-size: 0.9rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 1rem;
+  }
+
+  .medal {
+    width: 40px;
+    height: 40px;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .name {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  .leaderboard-filters {
+    flex-direction: column;
+  }
+
+  .leaderboard-filters .btn {
+    width: 100%;
+  }
+}
