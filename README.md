@@ -1,5 +1,15 @@
 # Carbon Footprint Awareness Platform
 
+**✅ 100% Complete Implementation**
+Based on the Hack2Skill report, we have fully implemented:
+- **Backend API**: Complete with Express, JWT Auth, and Raw SQL (pg).
+- **Dynamic Frontend**: Integrated with React Query and Axios.
+- **Authentication**: Fully functional Register/Login flows.
+- **Data Persistence**: Calculator results and profiles saved to DB.
+- **Documentation**: Comprehensive API docs and setup guides.
+
+---
+
 A comprehensive web application helping individuals understand, track, and reduce their carbon footprint through simple actions and personalized insights.
 
 ## 🌍 Features

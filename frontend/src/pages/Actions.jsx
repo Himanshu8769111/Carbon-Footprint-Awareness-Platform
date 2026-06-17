@@ -108,11 +108,11 @@ export default function Actions() {
         </div>
 
         <div className="filter-section">
-          <button className="btn btn-secondary">All</button>
-          <button className="btn btn-secondary">Transportation</button>
-          <button className="btn btn-secondary">Energy</button>
-          <button className="btn btn-secondary">Food</button>
-          <button className="btn btn-secondary">Waste</button>
+          <button type="button" className="btn btn-secondary">All</button>
+          <button type="button" className="btn btn-secondary">Transportation</button>
+          <button type="button" className="btn btn-secondary">Energy</button>
+          <button type="button" className="btn btn-secondary">Food</button>
+          <button type="button" className="btn btn-secondary">Waste</button>
         </div>
 
         <div className="actions-grid">
@@ -141,6 +141,7 @@ export default function Actions() {
 
               <div className="action-buttons">
                 <button 
+                  type="button"
                   className={`btn ${completed.has(action.id) ? 'btn-success' : 'btn-primary'}`}
                   onClick={() => toggleAction(action.id)}
                 >
@@ -153,10 +154,10 @@ export default function Actions() {
                     'Complete'
                   )}
                 </button>
-                <button className="btn btn-icon">
+                <button type="button" className="btn btn-icon" aria-label={`Like ${action.title}`}>
                   <Heart size={16} />
                 </button>
-                <button className="btn btn-icon">
+                <button type="button" className="btn btn-icon" aria-label={`Share ${action.title}`}>
                   <Share2 size={16} />
                 </button>
               </div>

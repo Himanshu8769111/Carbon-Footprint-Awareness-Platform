@@ -135,7 +135,7 @@ export default function Profile() {
           <div className="google-auth-section success">
             <h2>✓ Account Connected</h2>
             <p>You are signed in with Google as <strong>{user.name}</strong>.</p>
-            <button className="btn btn-secondary" onClick={handleLogout}>
+            <button type="button" className="btn btn-secondary" onClick={handleLogout}>
               <LogOut size={16} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
               Disconnect Account
             </button>
@@ -176,7 +176,7 @@ export default function Profile() {
             <p className="member-since">
               {user.isLoggedIn ? 'Connected via Google Auth' : 'Member since March 2024'}
             </p>
-            <button className="btn btn-secondary">
+            <button type="button" className="btn btn-secondary">
               <Edit size={18} />
               Edit Profile
             </button>
@@ -257,7 +257,7 @@ export default function Profile() {
                 <h4>Notifications</h4>
               </div>
               <p>Manage email and push notifications</p>
-              <button className="btn btn-secondary">Manage</button>
+              <button type="button" className="btn btn-secondary">Manage</button>
             </div>
 
             <div className="settings-card">
@@ -266,7 +266,7 @@ export default function Profile() {
                 <h4>Privacy</h4>
               </div>
               <p>Control who can see your profile</p>
-              <button className="btn btn-secondary">Manage</button>
+              <button type="button" className="btn btn-secondary">Manage</button>
             </div>
 
             <div className="settings-card">
@@ -275,7 +275,7 @@ export default function Profile() {
                 <h4>Security</h4>
               </div>
               <p>Change password and security settings</p>
-              <button className="btn btn-secondary">Manage</button>
+              <button type="button" className="btn btn-secondary">Manage</button>
             </div>
 
             <div className="settings-card">
@@ -294,6 +294,7 @@ export default function Profile() {
           <h3>⚠️ Danger Zone</h3>
           <div className="danger-actions">
             <button 
+              type="button"
               className="btn btn-outline" 
               onClick={handleLogout} 
               disabled={!user.isLoggedIn}
@@ -301,7 +302,7 @@ export default function Profile() {
               <LogOut size={18} />
               Logout
             </button>
-            <button className="btn btn-danger">
+            <button type="button" className="btn btn-danger">
               Delete Account
             </button>
           </div>

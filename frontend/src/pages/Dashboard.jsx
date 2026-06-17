@@ -1,25 +1,74 @@
+import { useMemo } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { TrendingDown, Award, Target, Zap } from 'lucide-react'
+import API from '../services/api'
 import './Dashboard.css'
 
 export default function Dashboard() {
-  const carbonData = [
+  const { data: footprint, isLoading } = useQuery({
+    queryKey: ['footprint'],
+    queryFn: async () => {
+      const { data } = await API.get('/footprint/baseline')
+      return data.data
+    }
+  })
+
+  const carbonData = useMemo(() => [
     { month: 'Jan', value: 5.2 },
     { month: 'Feb', value: 5.1 },
     { month: 'Mar', value: 4.8 },
     { month: 'Apr', value: 4.5 },
     { month: 'May', value: 4.3 },
-    { month: 'Jun', value: 4.2 }
-  ]
+    { month: 'Jun', value: footprint ? Number(footprint.annual_emissions) / 12 : 4.2 }
+  ], [footprint])
 
-  const categoryData = [
+  const categoryData = useMemo(() => footprint ? [
+    { name: 'Transportation', value: Number(footprint.transportation) },
+    { name: 'Energy', value: Number(footprint.energy) },
+    { name: 'Food', value: Number(footprint.food) },
+    { name: 'Waste', value: Number(footprint.waste) }
+  ] : [
     { name: 'Transportation', value: 45 },
     { name: 'Energy', value: 30 },
     { name: 'Food', value: 15 },
     { name: 'Waste', value: 10 }
-  ]
+  ], [footprint])
 
   const COLORS = ['#e74c3c', '#f39c12', '#f1c40f', '#2ecc71']
+
+  if (isLoading) {
+    return (
+      <div className="dashboard">
+        <div className="container">
+          <div className="skeleton skeleton-title" style={{ margin: '0 auto 3rem auto' }}></div>
+          
+          <div className="stats-overview">
+            {[1, 2, 3, 4].map(i => (
+              <div key={i} className="stat-box">
+                <div className="skeleton skeleton-circle"></div>
+                <div className="stat-info">
+                  <div className="skeleton skeleton-text" style={{ width: '40%' }}></div>
+                  <div className="skeleton skeleton-text" style={{ width: '70%' }}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="charts-grid">
+            <div className="chart-container">
+              <div className="skeleton skeleton-text" style={{ width: '50%', marginBottom: '2rem' }}></div>
+              <div className="skeleton skeleton-chart"></div>
+            </div>
+            <div className="chart-container">
+              <div className="skeleton skeleton-text" style={{ width: '50%', marginBottom: '2rem' }}></div>
+              <div className="skeleton skeleton-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="dashboard">
@@ -33,7 +82,7 @@ export default function Dashboard() {
               <TrendingDown size={32} />
             </div>
             <div className="stat-info">
-              <h3>4.2</h3>
+              <h3>{footprint ? Number(footprint.annual_emissions).toFixed(1) : '0.0'}</h3>
               <p>tons CO₂/year</p>
               <small>↓ 19% from last year</small>
             </div>
@@ -155,19 +204,19 @@ export default function Dashboard() {
             <div className="recommendation-card">
               <h3>Use Public Transport</h3>
               <p>Switching 2 car trips to public transport per week can save ~1 ton CO₂/year</p>
-              <button className="btn btn-primary">Learn More</button>
+              <button type="button" className="btn btn-primary">Learn More</button>
             </div>
 
             <div className="recommendation-card">
               <h3>Energy Efficient</h3>
               <p>Upgrade to LED bulbs and save up to 0.5 tons CO₂/year on electricity</p>
-              <button className="btn btn-primary">Learn More</button>
+              <button type="button" className="btn btn-primary">Learn More</button>
             </div>
 
             <div className="recommendation-card">
               <h3>Reduce Meat</h3>
               <p>Going vegetarian 2 days/week can reduce your emissions by 0.3 tons CO₂/year</p>
-              <button className="btn btn-primary">Learn More</button>
+              <button type="button" className="btn btn-primary">Learn More</button>
             </div>
           </div>
         </div>

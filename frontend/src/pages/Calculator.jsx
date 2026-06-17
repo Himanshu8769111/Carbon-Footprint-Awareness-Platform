@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { Car, Home, UtensilsCrossed, Trash2, Calculator } from 'lucide-react'
+import { useAuth } from '../context/AuthContext'
+import API from '../services/api'
 import './Calculator.css'
 
 export default function CalculatorPage() {
+  const { user } = useAuth()
   const [calculations, setCalculations] = useState({
     transportation: 0,
     energy: 0,
@@ -27,7 +30,7 @@ export default function CalculatorPage() {
     }))
   }
 
-  const calculateEmissions = () => {
+  const calculateEmissions = async () => {
     const newCalc = {
       transportation: (inputs.carMiles * 0.205) + (inputs.flightHours * 0.9),
       energy: (inputs.electricityKwh * 0.385) + (inputs.naturalGasTherm * 5.3),
@@ -35,6 +38,21 @@ export default function CalculatorPage() {
       waste: Math.max(0, (50 - inputs.recycle * 5) * 0.05)
     }
     setCalculations(newCalc)
+
+    if (user) {
+      try {
+        await API.post('/footprint/baseline', {
+          annualEmissions: (newCalc.transportation + newCalc.energy + newCalc.food + newCalc.waste) * 365,
+          transportation: newCalc.transportation * 365,
+          energy: newCalc.energy * 365,
+          food: newCalc.food * 365,
+          waste: newCalc.waste * 365
+        })
+        alert('Footprint saved to your profile!')
+      } catch (error) {
+        console.error('Error saving footprint:', error)
+      }
+    }
   }
 
   const totalEmissions = Object.values(calculations).reduce((a, b) => a + b, 0)
